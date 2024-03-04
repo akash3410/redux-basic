@@ -28,7 +28,9 @@ const rootReducer = (state = initState, action) => {
 
 const store = redux.createStore(rootReducer);
 
-console.log(store.getState());
+store.subscribe(() => {
+  console.log(store.getState());
+})
 
 store.dispatch({
   type: "ADD_NUM"
@@ -41,5 +43,3 @@ store.dispatch({
   type: "DEC_NUM",
   value: 24
 })
-
-console.log(store.getState());
